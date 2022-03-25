@@ -6,7 +6,7 @@ import random
 count = 0
 window = tk.Tk()
 window.geometry("500x400")
-window.title('Clicker')
+window.title('Clicker V.2')
 window.configure(bg='gray')
 countUp = tk.IntVar(0)
 
