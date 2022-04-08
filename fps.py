@@ -40,49 +40,49 @@ def FPStrainer():
         label_random = Label(window, text = "Press: W", bg = "lightblue", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,900), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("w",pressed_label)
+        label_random.bind("w",pressed_label_2)
         label_random.bind("b",reset_label)
     elif random_choice_list == "pressA":
         label_random = Label(window, text = "Press: A", bg = "yellow", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,900), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("a",pressed_label)
+        label_random.bind("a",pressed_label_2)
         label_random.bind("b",reset_label)
     elif random_choice_list == "pressS":
         label_random = Label(window, text = "Press: S", bg = "red", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,900), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("s",pressed_label)
+        label_random.bind("s",pressed_label_2)
         label_random.bind("b",reset_label)
     elif random_choice_list == "pressD":
         label_random = Label(window, text = "Press: D", bg = "lightgreen", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,900), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("d",pressed_label)
+        label_random.bind("d",pressed_label_2)
         label_random.bind("b",reset_label)
     elif random_choice_list == "pressBalk":
         label_random = Label(window, text = "Press: Spacebar", bg = "purple", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,1000), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("<space>",pressed_label)
+        label_random.bind("<space>",pressed_label_2)
         label_random.bind("b",reset_label)
     elif random_choice_list == "oneClick":
         label_random = Label(window, text = "Single Click", bg = "cyan", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,900), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("<Button-1>",pressed_label)
+        label_random.bind("<Button-1>",pressed_label_1)
         label_random.bind("b",reset_label)
     elif random_choice_list == "doubleClick":
         label_random = Label(window, text = "Double Click", bg = "orange", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,900), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("<Double-Button-1>",pressed_label)
+        label_random.bind("<Double-Button-1>",pressed_label_1)
         label_random.bind("b",reset_label)
     elif random_choice_list == "tripleClick":
         label_random = Label(window, text = "Triple Click", bg = "pink", height = 5, width = 20, relief = "solid", cursor = "cross")
         label_random.place(x=random.randrange(20,900), y = random.randrange(20,600))
         label_random.focus_set()
-        label_random.bind("<Triple-Button-1>",pressed_label)
+        label_random.bind("<Triple-Button-1>",pressed_label_1)
         label_random.bind("b",reset_label)
 
 # Functie voor mijzelf om iets te testen
@@ -93,12 +93,24 @@ def reset_label(self):
     
 # Functie om een nieuwe random label te plaatsen als de vorige succesvol is uitgevoerd 
 
-def pressed_label(self):
+def pressed_label_1(self):
     global random_pressed_label, label_random, score
     random_pressed_label = True
     if random_pressed_label == True:
         label_random.destroy()
         score += 1
+        scoreLabel.config(text= "Your Score: " + str(score))
+        random_pressed_label = False
+        FPStrainer()
+    else:
+        print("wow")
+
+def pressed_label_2(self):
+    global random_pressed_label, label_random, score
+    random_pressed_label = True
+    if random_pressed_label == True:
+        label_random.destroy()
+        score += 2
         scoreLabel.config(text= "Your Score: " + str(score))
         random_pressed_label = False
         FPStrainer()
